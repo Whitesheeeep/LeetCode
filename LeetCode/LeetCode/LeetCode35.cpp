@@ -1,8 +1,12 @@
 ﻿#include <iostream>
+#include <vector>
 
+class Solution {
+public:
+    int SearchInsert(std::vector<int>& nums, int target);
+};
 
-
-public int SearchInsert(int[] nums, int target)
+int Solution::SearchInsert(std::vector<int>& nums, int target)
 {
     if (nums.size() == 0) return 0;
     else
