@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LeetCode_Csharp
 {
-    public class Solution
+    public partial class Solution
     {
         //Solution 1
         public int[] SearchRange(int[] nums, int target)

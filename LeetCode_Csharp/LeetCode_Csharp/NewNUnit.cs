@@ -16,11 +16,13 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            Solution s = new Solution();
-            int[] nums = { 5, 7, 7, 8, 8, 10 };
-            LeetCode69 leetCode69 = new LeetCode69();
+            LeetCode_Csharp.Solution solution = new LeetCode_Csharp.Solution();
+
+            Assert.AreEqual(true, solution.IsPerfectSquqre_2(16));
+            Assert.AreEqual(true, solution.IsPerfectSquqre_2(25));
+            Assert.AreEqual(true, solution.IsPerfectSquqre_2(64));
+            Assert.AreEqual(false, solution.IsPerfectSquqre_2(195));
             
-            Assert.AreEqual(46340, leetCode69.MySqrt_2(2147483647));
         }
     }
 }
