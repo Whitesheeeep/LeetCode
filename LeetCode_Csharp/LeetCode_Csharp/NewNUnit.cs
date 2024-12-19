@@ -20,7 +20,7 @@ namespace LeetCode_Csharp
             int[] nums = { 5, 7, 7, 8, 8, 10 };
             LeetCode69 leetCode69 = new LeetCode69();
             
-            Assert.AreEqual(46340, leetCode69.MySqrt(2147483647));
+            Assert.AreEqual(46340, leetCode69.MySqrt_2(2147483647));
         }
     }
 }
