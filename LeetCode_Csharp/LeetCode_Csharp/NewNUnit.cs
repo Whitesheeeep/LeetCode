@@ -18,10 +18,8 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            int[] ints = { 0,1};
-            LeetCode283 leetCode283 = new LeetCode283();
-            leetCode283.MoveZeros(ints);
-            Assert.AreEqual(new int[]{1,0}, ints);
+            LeetCode844 leetCode884 = new LeetCode844();
+            Assert.AreEqual(true, leetCode884.BackSpaceCompare("ab#c", "ad#c"));
             
         }
     }
