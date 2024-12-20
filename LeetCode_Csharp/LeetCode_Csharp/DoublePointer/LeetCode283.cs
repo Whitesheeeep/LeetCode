@@ -12,7 +12,7 @@ namespace LeetCode_Csharp.DoublePointer
         {
             int slow = 0;
             int fast;
-            // int temp;
+            int temp;
             for (fast = 0; fast < nums.Length; fast++)
             {
                 if(nums[fast] != 0)
