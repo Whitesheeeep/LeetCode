@@ -6,6 +6,7 @@ using LeetCode_Csharp.DoublePointer;
 using NUnit.Framework;
 using NUnit;
 using LeetCode_Csharp.MinLengthOfChildList;
+using LeetCode_Csharp.GenerateMatrix;
 
 namespace LeetCode_Csharp
 {
@@ -19,12 +20,13 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            LeetCode76_MinWindow2 leetCode76_MinWindow2 = new LeetCode76_MinWindow2();
-            string s = "ADOBECODEBANC";
-            string t = "ABC";
-            string result = leetCode76_MinWindow2.MinWindow(s, t);
-            Assert.AreEqual("BANC", result);
-            
+            LeetCode59_GenerateMatrix_middle leetCode59 = new LeetCode59_GenerateMatrix_middle();
+            int[][] res = leetCode59.GenerateMatrix(3);
+            int[][] expected = new int[3][];
+            expected[0] = new int[] {1, 2, 3};
+            expected[1] = new int[] {8, 9, 4};
+            expected[2] = new int[] {7, 6, 5};
+            Assert.AreEqual(expected, res);
             
             
         }
