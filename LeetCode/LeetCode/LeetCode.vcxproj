@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode203_DeleteElement_Easy.cpp" />
+    <ClCompile Include="LeetCode206_ReverseLinkedList.cpp" />
     <ClCompile Include="LeetCode209.cpp" />
     <ClCompile Include="LeetCode35.cpp" />
     <ClCompile Include="LeetCode904_TotalFruit.cpp" />
@@ -139,6 +140,7 @@
     <Text Include="文本.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LeetCode206_ReverseLinkedList.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="MainClass.h" />
     <ClInclude Include="MyLinkedList.h" />
