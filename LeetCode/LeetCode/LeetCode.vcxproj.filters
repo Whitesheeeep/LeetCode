@@ -16,6 +16,9 @@
     <Filter Include="源文件\长度最小的子数组|滑动窗口">
       <UniqueIdentifier>{77f68b09-50a1-4dfb-9763-4749c00e1876}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\LinkedList">
+      <UniqueIdentifier>{3f8ec868-ecb7-4476-819a-40ed7b2e22f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode35.cpp">
@@ -24,5 +27,36 @@
     <ClCompile Include="LeetCode209.cpp">
       <Filter>源文件\长度最小的子数组|滑动窗口</Filter>
     </ClCompile>
+    <ClCompile Include="LeetCode904_TotalFruit.cpp">
+      <Filter>源文件\长度最小的子数组|滑动窗口</Filter>
+    </ClCompile>
+    <ClCompile Include="ListNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LeetCode203_DeleteElement_Easy.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLinkedList.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="MainClass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="文本.md">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ListNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLinkedList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

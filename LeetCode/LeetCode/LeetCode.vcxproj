@@ -127,8 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LeetCode203_DeleteElement_Easy.cpp" />
     <ClCompile Include="LeetCode209.cpp" />
     <ClCompile Include="LeetCode35.cpp" />
+    <ClCompile Include="LeetCode904_TotalFruit.cpp" />
+    <ClCompile Include="ListNode.cpp" />
+    <ClCompile Include="MainClass.cpp" />
+    <ClCompile Include="MyLinkedList.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="文本.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ListNode.h" />
+    <ClInclude Include="MainClass.h" />
+    <ClInclude Include="MyLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
