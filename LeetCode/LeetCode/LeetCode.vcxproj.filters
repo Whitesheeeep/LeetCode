@@ -57,6 +57,9 @@
     <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp">
       <Filter>源文件\LinkedList</Filter>
     </ClCompile>
+    <ClCompile Include="LeetCode_interview02_07_getIntersectionNode_Easy.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="文本.md">

@@ -7,6 +7,8 @@ class LinkedListSolution
 {
 public:
 	ListNode* removeNthFromEnd(ListNode* head, int n);
+	ListNode* getIntersectionNode(ListNode* headA, ListNode* headB);
+	ListNode* getIntersectionNode2(ListNode* headA, ListNode* headB);
 };
 #endif // !LINKEDLISTSOLUTION_H
 

@@ -134,6 +134,7 @@
     <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp" />
     <ClCompile Include="LeetCode35.cpp" />
     <ClCompile Include="LeetCode904_TotalFruit.cpp" />
+    <ClCompile Include="LeetCode_interview02_07_getIntersectionNode_Easy.cpp" />
     <ClCompile Include="LinkedListSolution.cpp" />
     <ClCompile Include="ListNode.cpp" />
     <ClCompile Include="MainClass.cpp" />
