@@ -7,6 +7,8 @@ using NUnit.Framework;
 using NUnit;
 using LeetCode_Csharp.MinLengthOfChildList;
 using LeetCode_Csharp.GenerateMatrix;
+using LeetCode_Csharp.LinkedList;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LeetCode_Csharp
 {
@@ -20,7 +22,13 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            
+            ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
+            ListNode head = new ListNode(1);
+            head.next = new ListNode(2);
+            head.next.next = new ListNode(3);
+            head.next.next.next = new ListNode(4);
+            head.next.next.next.next = new ListNode(5);
+            ListNode result = reverseLinkedList.ReverseList(head);
             
             
         }
