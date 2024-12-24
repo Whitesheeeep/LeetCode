@@ -1,6 +1,5 @@
 #include "LinkedListSolution.h"
 
-
 //时间复杂度：O(m+n)，空间复杂度：O(1)
 ListNode* LinkedListSolution::getIntersectionNode(ListNode* headA, ListNode* headB) {
 	if (headA == nullptr || headB == nullptr) return nullptr;

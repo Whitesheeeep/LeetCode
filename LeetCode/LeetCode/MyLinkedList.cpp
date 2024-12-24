@@ -85,3 +85,4 @@ private:
 public:
 	int size;
 };
+

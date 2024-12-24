@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="头文件">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -13,14 +9,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\LinkedList">
+      <UniqueIdentifier>{803dcb89-9c18-4b9d-b6d4-e84d23ee6f93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
     <Filter Include="源文件\长度最小的子数组|滑动窗口">
       <UniqueIdentifier>{77f68b09-50a1-4dfb-9763-4749c00e1876}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\LinkedList">
       <UniqueIdentifier>{3f8ec868-ecb7-4476-819a-40ed7b2e22f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\LinkedList">
-      <UniqueIdentifier>{803dcb89-9c18-4b9d-b6d4-e84d23ee6f93}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +58,9 @@
       <Filter>源文件\LinkedList</Filter>
     </ClCompile>
     <ClCompile Include="LeetCode_interview02_07_getIntersectionNode_Easy.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectCycle.cpp">
       <Filter>源文件\LinkedList</Filter>
     </ClCompile>
   </ItemGroup>
