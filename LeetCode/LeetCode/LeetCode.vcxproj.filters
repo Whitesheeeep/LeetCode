@@ -45,6 +45,9 @@
     <ClCompile Include="LeetCode206_ReverseLinkedList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="文本.md">
@@ -62,6 +65,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="LeetCode206_ReverseLinkedList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LeetCode24_SwapPairs_Middle.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
