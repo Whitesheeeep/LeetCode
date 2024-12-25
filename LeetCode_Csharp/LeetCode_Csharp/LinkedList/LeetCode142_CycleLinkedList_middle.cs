@@ -24,6 +24,10 @@ namespace LeetCode_Csharp.LinkedList
         {
             if(head == null || head.next == null) return null;
             ListNode slow = head, fast = head;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 33a82977e8241ab95b408c08604140b55f33d991
 
             //第一次相遇，同时判断是否有环
             while(fast != null && fast.next != null)
@@ -42,6 +46,12 @@ namespace LeetCode_Csharp.LinkedList
                     return newP;
                 }
             }
+<<<<<<< HEAD
+=======
+=======
+            //第一次相遇，同时判断是否有环
+>>>>>>> cde8c89791c0ff35f8bbdec52c060d8272902335
+>>>>>>> 33a82977e8241ab95b408c08604140b55f33d991
             return null;
         }
     }
