@@ -7,6 +7,6 @@ namespace LeetCode_Csharp.StackAndQueue
 {
     public class LeetCode232_QueueBasedOnStack_Easy
     {
-        
+        public void MyQueue(){}
     }
 }
