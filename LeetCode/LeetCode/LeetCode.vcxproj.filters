@@ -22,6 +22,9 @@
     <Filter Include="源文件\LinkedList">
       <UniqueIdentifier>{3f8ec868-ecb7-4476-819a-40ed7b2e22f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\StackAndQueue">
+      <UniqueIdentifier>{6c837744-3284-4315-bdc1-027a8cafbd48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode35.cpp">
@@ -62,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="DetectCycle.cpp">
       <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="StackAndQueue.cpp">
+      <Filter>源文件\StackAndQueue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
