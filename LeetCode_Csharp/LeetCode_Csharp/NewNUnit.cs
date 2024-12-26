@@ -10,6 +10,7 @@ using LeetCode_Csharp.GenerateMatrix;
 using LeetCode_Csharp.LinkedList;
 using System.Diagnostics.CodeAnalysis;
 using static LeetCode_Csharp.StackAndQueue.LeetCode232_QueueBasedOnStack_Easy;
+using LeetCode_Csharp.Code.StackAndQueue;
 
 namespace LeetCode_Csharp
 {
@@ -23,13 +24,13 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            MyQueue myQueue= new MyQueue();
-            myQueue.Push(1);
-            myQueue.Push(2);
-            myQueue.Peek();
-            myQueue.Pop();
-            myQueue.Empty();
+            LeetCode20_ValidBraket_Easy leetCode20 = new LeetCode20_ValidBraket_Easy();
             
+            Assert.AreEqual(leetCode20.IsValid("()"), true);
+            Assert.AreEqual(leetCode20.IsValid("()[]{}"), true);
+            Assert.AreEqual(leetCode20.IsValid("(]"), false);
+            Assert.AreEqual(leetCode20.IsValid("(){}}{"), false);
+
             
         }
     }
