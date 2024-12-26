@@ -141,6 +141,7 @@
     <ClCompile Include="MainClass.cpp" />
     <ClCompile Include="MyLinkedList.cpp" />
     <ClCompile Include="StackAndQueue.cpp" />
+    <ClCompile Include="StackBasedOnQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="文本.md" />
