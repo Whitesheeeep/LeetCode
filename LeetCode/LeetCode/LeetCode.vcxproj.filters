@@ -72,6 +72,9 @@
     <ClCompile Include="StackBasedOnQueue.cpp">
       <Filter>源文件\StackAndQueue</Filter>
     </ClCompile>
+    <ClCompile Include="LeetCode20_ValidBraket_Easy.cpp">
+      <Filter>源文件\StackAndQueue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="文本.md">

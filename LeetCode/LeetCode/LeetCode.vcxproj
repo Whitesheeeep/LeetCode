@@ -132,6 +132,7 @@
     <ClCompile Include="LeetCode203_DeleteElement_Easy.cpp" />
     <ClCompile Include="LeetCode206_ReverseLinkedList.cpp" />
     <ClCompile Include="LeetCode209.cpp" />
+    <ClCompile Include="LeetCode20_ValidBraket_Easy.cpp" />
     <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp" />
     <ClCompile Include="LeetCode35.cpp" />
     <ClCompile Include="LeetCode904_TotalFruit.cpp" />
