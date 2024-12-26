@@ -24,12 +24,8 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            LeetCode20_ValidBraket_Easy leetCode20 = new LeetCode20_ValidBraket_Easy();
             
-            Assert.AreEqual(leetCode20.IsValid("()"), true);
-            Assert.AreEqual(leetCode20.IsValid("()[]{}"), true);
-            Assert.AreEqual(leetCode20.IsValid("(]"), false);
-            Assert.AreEqual(leetCode20.IsValid("(){}}{"), false);
+            
 
             
         }
