@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DetectCycle.cpp" />
+    <ClCompile Include="LeetCode1047_removeDuplicates_Easy.cpp" />
     <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp" />
     <ClCompile Include="LeetCode203_DeleteElement_Easy.cpp" />
     <ClCompile Include="LeetCode206_ReverseLinkedList.cpp" />
