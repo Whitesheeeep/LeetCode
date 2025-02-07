@@ -13,6 +13,7 @@ using static LeetCode_Csharp.StackAndQueue.LeetCode232_QueueBasedOnStack_Easy;
 using LeetCode_Csharp.Code.StackAndQueue;
 using LeetCode_Csharp.Code.HashTable;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using LeetCode_Csharp.Code.String;
 
 namespace LeetCode_Csharp
 {
@@ -26,13 +27,10 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            LeetCode18_FourSum_middle leetCode18_FourSum_Middle = new();
-            int[] nums = [1000000000,1000000000,1000000000,1000000000];
-            int target = -294967296;
-            var res = leetCode18_FourSum_Middle.FourSum(nums, target);
-            int[][] expected =[];
-            
-            Assert.AreEqual(expected, res);
+            LeetCode151_ReverseWords_middle leetCode151_ReverseWords_Middle = new();
+            string s = "the sky is blue";
+            string result = leetCode151_ReverseWords_Middle.ReverseWords2(s);
+            Assert.AreEqual("blue is sky the", result);
 
         }
     }
