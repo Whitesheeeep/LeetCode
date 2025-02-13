@@ -15,6 +15,7 @@ namespace LeetCode_Csharp
         {
             return StringAfterBackSpace(s).Equals(StringAfterBackSpace(t));
         }
+        
 
         public string  StringAfterBackSpace(string s)
         {
