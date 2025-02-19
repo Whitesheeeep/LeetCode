@@ -3,8 +3,14 @@ namespace LeetCode_Csharp.Code.BinaryTree
     using System;
     public class TreeNode: TreeNode<int>
     {
+        public new TreeNode left;
+        public new TreeNode right;
+
         public TreeNode(int val): base(val)
         {
+            this.val = val;
+            left = null;
+            right = null;
         }
     }
 
