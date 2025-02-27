@@ -29,12 +29,18 @@ namespace LeetCode_Csharp.Code.BinaryTree
             return root;
         }
 
-        public TreeNode BuildTreeByInAndPost_Index(TreeNode treeNode, int startIndex , int endIndex, int leftength)
+        // 使用索引来优化，这样就不用每一次都去复制数组中的数据，减少了时间复杂度
+        public TreeNode BuildTreeByInAndPost_Index(TreeNode treeNode, ref int[] inorder, int startIndex , int endIndex, 
+        ref int[] postorder, int leftength)
         {
             if(startIndex > endIndex) return null;
             if(startIndex == endIndex) return new TreeNode(inorder[startIndex]);
 
-            
+            TreeNode root = new TreeNode(postorder[leftength]);
+            int rootIndex = Array.IndexOf(inorder, root.val);
+            root.left = BuildTreeByInAndPost_Index(root, ref inorder, startIndex, rootIndex - 1, ref postorder, leftength - 1);
+            root.right = BuildTreeByInAndPost_Index(root, ref inorder, rootIndex + 1, endIndex, ref postorder, leftength - 1);
+            return root;
         }
     }
 }
