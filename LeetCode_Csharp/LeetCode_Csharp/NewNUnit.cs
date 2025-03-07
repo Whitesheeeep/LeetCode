@@ -16,6 +16,7 @@ using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using LeetCode_Csharp.Code.String;
 using System.Text;
 using System.Diagnostics;
+using LeetCode_Csharp.Code.BinaryTree;
 
 namespace LeetCode_Csharp
 {
@@ -29,37 +30,12 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            int[] nums = new int[] { 3, 2, 1, 6, 0, 5 };
-            foreach(var item in nums)
-            {
-                Console.Write(item + " ");
-            }
-            System.Console.WriteLine();
-            int[] indexOfMax = new int[nums.Length];
-            // 插入排序同时得到最大值的索引 但是 插排会导致前面的 indexArray 发生变化导致 bug
-            // 解决方案：移动数组的同时，也要移动 indexArray
-            for(int i = 1; i < nums.Length; i++)
-            {
-                int temp = nums[i];
+            TreeNode  root1 = new TreeNode(1);
+            root1.left = new TreeNode(3);
+            root1.right = new TreeNode(2);
+            LeetCode98_IsValidBST_middle test_98 = new LeetCode98_IsValidBST_middle();
+            Assert.AreEqual(true, test_98.IsValidBST(root1));
 
-                int j = i;
-                for(; j > 0 && nums[j - 1] > temp; j--)
-                {
-                    nums[j] = nums[j - 1];
-                    indexOfMax[j] = indexOfMax[j - 1];
-                }
-                nums[j] = temp;
-                indexOfMax[j] = i;
-            }
-            foreach(var item in nums)
-            {
-                Console.Write(item + " ");
-            }
-            Console.WriteLine();
-            foreach(var item in indexOfMax)
-            {
-                Console.Write(item + " ");
-            }
 
         }
     }
