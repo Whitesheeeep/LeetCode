@@ -27,6 +27,92 @@ namespace LeetCode_Csharp.Code.BinaryTree
             right = null;
         }
     }
+    public class BinaryTree: BinaryTree<int>
+    {
+        public BinaryTree()
+        {
+            rootNode = null;
+        }
+
+        public BinaryTree(int data)
+        {
+            rootNode = new TreeNode<int>(data);
+        }
+
+        public void Insert(int data)
+        {
+            TreeNode<int> newNode = new TreeNode<int>(data);
+            if(rootNode == null)
+            {
+                rootNode = newNode;
+                return;
+            }
+
+            Queue<TreeNode> queue = [];
+            queue.Enqueue(rootNode as TreeNode);
+            while(queue.Count > 0)
+            {
+                int size = queue.Count;
+                while(size-- > 0)
+                {
+                    TreeNode<int> node = queue.Dequeue();
+                    if(node.left is null)
+                    {
+                        node.left = newNode;
+                        return;
+                    }
+                    if(node.right is null)
+                    {
+                        node.right = newNode;
+                        return;
+                    }
+                    if(node.left is not null)
+                    {
+                        queue.Enqueue(node.left as TreeNode);
+                    }
+                    if(node.right is not null)
+                    {
+                        queue.Enqueue(node.right as TreeNode);
+                    }
+                }
+            }
+
+        }
+    }
+    public class BST<T> 
+    where T: IComparable<T>
+    {
+        public TreeNode<T> root;
+
+        public BST()
+        {
+            root = null;
+        }
+
+        public BST(T data)
+        {
+            root = new TreeNode<T>(data);
+        }
+
+        public TreeNode<T> Insert(TreeNode<T> root ,T val)
+        {
+            if(root is null)
+            {
+                root = new TreeNode<T>(val);
+                return root;
+            }
+
+            if(root.val.CompareTo(val) > 0)
+            {
+                root.left = Insert(root.left, val);
+            }
+            else
+            {
+                root.right = Insert(root.right, val);
+            }
+            return root;
+        }
+    }
 
     public class BinaryTree<T>
     {
