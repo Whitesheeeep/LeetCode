@@ -10,15 +10,11 @@ namespace LeetCode_Csharp.Code.BinaryTree
         public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)
         {
             if(root is null) return root;
-            if(root == p || root == q) return root;
+            // 从上往下搜
+            if(root.val > p.val && root.val > q.val) return LowestCommonAncestor(root.left, p, q);
+            if(root.val < p.val && root.val < q.val) return LowestCommonAncestor(root.right, p, q);
 
-            TreeNode left = LowestCommonAncestor(root.left, p, q);
-            TreeNode right = LowestCommonAncestor(root.right, p, q);
-
-            if(left is not null && right is not null) return root;
-            else if(left is not null && right is null) return left;
-            else if(left is null && right is not null) return right;
-            else return null;
+            return root;
         }
     }
 }
