@@ -22,13 +22,13 @@ namespace LeetCode_Csharp.Code.BackTracking
             // 终止条件
             if (path.Count == k)
             {
-                int[] ints = new int[k];
-                path.CopyTo(ints);
-                res.Add(path);
+                res.Add([.. path]);
                 return;
             }
 
             for (int i = left; i <= n; i++)
+            // 剪枝
+            // for(int i = left; i <= n - (k - path.Count) + 1; i++)
             {
                 path.Add(i);
                 BackTracking(n, k, res, path, i + 1);
