@@ -17,6 +17,7 @@ using LeetCode_Csharp.Code.String;
 using System.Text;
 using System.Diagnostics;
 using LeetCode_Csharp.Code.BinaryTree;
+using LeetCode_Csharp.Code.BackTracking;
 
 namespace LeetCode_Csharp
 {
@@ -30,19 +31,9 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            List<IList<int>> res = new();
-            List<int> path = [];
-            path.Add(0);
-            path.Add(1);
-            res.Add(path);
-            path.RemoveAt(1);
-            foreach(var item in res)
-            {
-                foreach(int i in item)
-                    System.Console.WriteLine(i);
-            }
-
-
+            Dictionary<int, int> dic = new();
+            dic[0] = 1;
+            System.Console.WriteLine(dic[0]);
         }
     }
 }
