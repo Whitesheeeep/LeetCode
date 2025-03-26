@@ -31,9 +31,13 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            Dictionary<int, int> dic = new();
-            dic[0] = 1;
-            System.Console.WriteLine(dic[0]);
+            LeetCode40_CombinationSum2_middle test = new();
+            int[] testArray = [1,2,5];
+            var res = test.CombinationSum2(testArray, 8);
+            var res2 = new int[][]{
+                [1,2,5]
+            };
+            Assert.AreEqual(res, res2);
         }
     }
 }
