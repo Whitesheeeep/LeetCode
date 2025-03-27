@@ -14,31 +14,32 @@ namespace LeetCode_Csharp.Code.BackTracking
         public IList<IList<int>> CombinationSum2(int[] candidates, int target)
         {
             Array.Sort(candidates);
-            
-            
+
+
             BackTracking(candidates, target, 0, 0);
             return res;
 
 
         }
-        
+
         private void BackTracking(int[] nums, int target, int startIndex, int curSum)
         {
-            if(curSum > target) return;
-            else if(curSum == target) 
+            if (curSum > target) return;
+            else if (curSum == target)
             {
-                res.Add([..path]);
+                res.Add([.. path]);
                 return;
             }
 
-            for(int i = startIndex; i < nums.Length; i++)
+            for (int i = startIndex; i < nums.Length && curSum + nums[i] <= target; i++)
             {
                 // 另一种去重：if (i > start && candidates[i] == candidates[i - 1]) continue;
-                int temp = nums[startIndex];
+                // 还有一种去重：used
+                int temp = nums[i];
                 path.Add(temp);
-                BackTracking(nums, target, i+1, curSum + temp);
-                // 去重
-                while(nums[i] == temp)
+                BackTracking(nums, target, i + 1, curSum + temp);
+                // 去重，在这去重的思路：用 nums[i] 的 path 的可能性都找过了，没必要再次使用 nums[i]，因此直接找到最后不为 nums[i] 的继续进行
+                while (i < nums.Length && nums[i] == temp)
                 {
                     i++;
                 }
