@@ -13,27 +13,26 @@ namespace LeetCode_Csharp.Code.BackTracking
         {
             path = new();
             res = new();
-            BackTracking(s, 0);
+            BackTracking( 0);
             return res;
 
-            void BackTracking(in string input, int startIndex)
+            void BackTracking(int startIndex)
             {
                 
-                if(startIndex == input.Length)
+                if(startIndex == s.Length)
                 {
                     res.Add([..path]);
                     return;
                 }
 
-                if(s.Length >= input.Length) return;
-
                 for(int i = startIndex; i < s.Length; i++)
                 {
                     if (IsHuiWenString(s, startIndex, i))
-                {
-                    path.Add(s[startIndex..(i+1)]);
-                }
-                    BackTracking(input,  i);
+                    {
+                        path.Add(s[startIndex..(i+1)]);
+                    }
+                    else continue;
+                    BackTracking( i+1);
                     path.RemoveAt(path.Count  - 1);
                 }
             }
@@ -41,9 +40,9 @@ namespace LeetCode_Csharp.Code.BackTracking
             bool IsHuiWenString(string s, int start, int end)
             {
                 bool isHuiWen = true;
-                for (int i = 0; i < s.Length / 2; i++)
+                for (int i = start, j = end; i < j; i++, j--)
                 {
-                    if (s[i] != s[^(i + 1)])
+                    if (s[i] != s[j])
                     {
                         isHuiWen = false;
                         break;
