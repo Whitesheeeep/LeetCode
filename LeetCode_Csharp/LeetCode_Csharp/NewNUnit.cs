@@ -31,8 +31,12 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            int[] a = [1,2,3];
-            System.Console.WriteLine(a[^1]);
+            string s = "ab";
+            List<string> path = [];
+            path.Add(s);
+            s = "";
+            foreach(var item in path)
+                System.Console.WriteLine(item);
         }
     }
 }

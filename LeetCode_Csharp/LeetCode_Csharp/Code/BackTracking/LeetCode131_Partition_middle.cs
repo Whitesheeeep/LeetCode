@@ -13,24 +13,32 @@ namespace LeetCode_Csharp.Code.BackTracking
         {
             path = new();
             res = new();
-            BackTracking(s, "");
+            BackTracking(s, 0);
             return res;
 
-            void BackTracking(in string input, string s)
+            void BackTracking(in string input, int startIndex)
             {
-                if (IsHuiWenString(s))
+                
+                if(startIndex == input.Length)
                 {
-                    
+                    res.Add([..path]);
+                    return;
                 }
+
                 if(s.Length >= input.Length) return;
 
-                for(int i = 0; i < s.Length; i++)
+                for(int i = startIndex; i < s.Length; i++)
                 {
-                    BackTracking(input, s + s[i]);
+                    if (IsHuiWenString(s, startIndex, i))
+                {
+                    path.Add(s[startIndex..(i+1)]);
+                }
+                    BackTracking(input,  i);
+                    path.RemoveAt(path.Count  - 1);
                 }
             }
 
-            bool IsHuiWenString(string s)
+            bool IsHuiWenString(string s, int start, int end)
             {
                 bool isHuiWen = true;
                 for (int i = 0; i < s.Length / 2; i++)
