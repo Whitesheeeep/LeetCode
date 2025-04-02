@@ -17,7 +17,6 @@ namespace LeetCode_Csharp.Code.BackTracking
             used = new bool[nums.Length];
             if(nums.Length == 0) return res;
             if(nums.Length == 1) return [nums];
-
             BackTracking(nums, 0);
             return res;
         }
@@ -28,6 +27,8 @@ namespace LeetCode_Csharp.Code.BackTracking
             for(int i = startIndex; i < nums.Length; i++)
             {
                 // 树层去重
+                // 在此处进行去重（或者说是剪枝）的操作的前提是数组进行了排序，但是在此题是不能进行排序的
+                // 用字典记录进行去重？
                 if(i > 0 && nums[i] == nums[i-1] && used[i-1] == false) continue;
                 if(path.Count > 0 && nums[i] < path.Last()) continue;
                 path.Add(nums[i]);
