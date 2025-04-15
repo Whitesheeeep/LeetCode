@@ -9,34 +9,35 @@ namespace LeetCode_Csharp.Code.BackTracking
     {
         List<int> path;
         List<IList<int>> res;
-        bool[] used;
         public IList<IList<int>> FindSubsequences(int[] nums)
         {
             path = new List<int>();
             res = new List<IList<int>>();
-            used = new bool[nums.Length];
-            if(nums.Length == 0) return res;
-            if(nums.Length == 1) return [nums];
+            if(nums.Length < 2) return res;
             BackTracking(nums, 0);
             return res;
         }
 
         private void BackTracking(int[] nums, int startIndex)
         {
+            // 这就可以在每层进行检测，从而达到树层去重
+            HashSet<int> used = new();
 
             for(int i = startIndex; i < nums.Length; i++)
             {
                 // 树层去重
                 // 在此处进行去重（或者说是剪枝）的操作的前提是数组进行了排序，但是在此题是不能进行排序的
                 // 用字典记录进行去重？
-                if(i > 0 && nums[i] == nums[i-1] && used[i-1] == false) continue;
-                if(path.Count > 0 && nums[i] < path.Last()) continue;
+                // 用 HastSet 即可
+                if(path.Count > 0 && nums[i] < path.Last() || used.Contains(nums[i])) continue;
+
                 path.Add(nums[i]);
+                used.Add(nums[i]);
                 if(path.Count > 1) res.Add([..path]);
-                used[i] = true;
+
                 BackTracking(nums, i + 1);
                 path.RemoveAt(path.Count - 1);
-                used[i] = false;
+
             }
         }
     }
