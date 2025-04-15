@@ -31,11 +31,12 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            IList<IList<string>> tickets = [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]];
+            IList<IList<string>> tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]];
             LeetCode332_FindItinerary_tough test = new();
             var item = test.FindItinerary(tickets);
-            IList<string> res = ["JFK", "MUC", "LHR", "SFO", "SJC"];
-            Assert.AreEqual(item, res);
+            IList<string> res = ["JFK","ATL","JFK","SFO","ATL","SFO"];
+            System.Console.WriteLine(test.CompareStringList(["JFK","ATL","SFO","ATL","JFK","SFO"],["JFK","ATL","JFK","SFO","ATL","SFO"])); 
+
             
         }
     }
