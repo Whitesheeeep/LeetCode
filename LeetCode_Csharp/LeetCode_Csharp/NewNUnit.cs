@@ -33,7 +33,7 @@ namespace LeetCode_Csharp
         {
             IList<IList<string>> tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","JFK"],["ATL","AAA"],["AAA","ATL"],["ATL","BBB"],["BBB","ATL"],["ATL","CCC"],["CCC","ATL"],["ATL","DDD"],["DDD","ATL"],["ATL","EEE"],["EEE","ATL"],["ATL","FFF"],["FFF","ATL"],["ATL","GGG"],["GGG","ATL"],["ATL","HHH"],["HHH","ATL"],["ATL","III"],["III","ATL"],["ATL","JJJ"],["JJJ","ATL"],["ATL","KKK"],["KKK","ATL"],["ATL","LLL"],["LLL","ATL"],["ATL","MMM"],["MMM","ATL"],["ATL","NNN"],["NNN","ATL"]];
             LeetCode332_FindItinerary_tough test = new();
-            var item = test.FindItinerary(tickets);
+            var item = test.FindItineraryButOverTime(tickets);
             foreach(var result in item)
             {
                 System.Console.WriteLine(result);

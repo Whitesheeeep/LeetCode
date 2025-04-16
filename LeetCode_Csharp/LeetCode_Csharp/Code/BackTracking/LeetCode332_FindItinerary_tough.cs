@@ -7,10 +7,11 @@ namespace LeetCode_Csharp.Code.BackTracking
 {
     public class LeetCode332_FindItinerary_tough
     {
-        #region 超时方法
         LinkedList<string> path;
         List<string> res;
         bool[] used;
+
+        #region 超时方法
         public IList<string> FindItineraryButOverTime(IList<IList<string>> tickets)
         {
             path = new();
@@ -44,9 +45,10 @@ namespace LeetCode_Csharp.Code.BackTracking
                 if (used[i] == true) continue; // 如果票已经用过，跳过
                 System.Console.WriteLine(path.Count);
                 if (path.Last() != tickets[i][0]) continue; // 如果票对不上，就跳过
+                if(i > 0 && tickets[i-1] == tickets[i] && used[i-1] == false) continue;
 
 
-                path.AddLast(tickets[i][1]);
+                path.AddLast(tickets[i][0]);
                 used[i] = true;
                 if (BackTracking(tickets)) return true;
                 used[i] = false;
