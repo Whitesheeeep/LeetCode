@@ -18,6 +18,7 @@ using System.Text;
 using System.Diagnostics;
 using LeetCode_Csharp.Code.BinaryTree;
 using LeetCode_Csharp.Code.BackTracking;
+using LeetCode_Csharp.Code.GreedyAlgorithm;
 
 namespace LeetCode_Csharp
 {
@@ -31,9 +32,8 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            if(Int32.TryParse("1", out int num))
-                System.Console.WriteLine( num);
-            System.Console.WriteLine(int.Parse("1"));
+            LeetCode45_Jump_middle test = new();
+            int res = test.Jump([2,3,1,1,4]);
         }
     }
 }
