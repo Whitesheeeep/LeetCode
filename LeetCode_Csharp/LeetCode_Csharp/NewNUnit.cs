@@ -31,12 +31,9 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            List<(int x, int y)> list = new();
-            list.Add((1,2));
-            list.Add((1,2));
-            list.Remove((1,2));
-        
-            System.Console.WriteLine(list.Count);
+            if(Int32.TryParse("1", out int num))
+                System.Console.WriteLine( num);
+            System.Console.WriteLine(int.Parse("1"));
         }
     }
 }
