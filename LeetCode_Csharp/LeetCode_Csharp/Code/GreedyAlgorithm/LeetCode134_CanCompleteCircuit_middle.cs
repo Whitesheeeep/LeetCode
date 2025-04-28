@@ -1,37 +1,44 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace LeetCode_Csharp.Code.GreedyAlgorithm
 {
     public class LeetCode134_CanCompleteCircuit_middle
     {
         public int CanCompleteCircuit(int[] gas, int[] cost)
         {
-            int[] count_Furthest = new int[gas.Length];
-            int maxCount = 0, tempCount = 0; // maxCount 记录最多走出去几站，tempCount 记录现在走出去几站了
-            int index = 0/* , tempIndex = 0 */;// index 用于记录走得最多的车站的索引，tempIndex 用于锚定开始走的车站
-            int rmin_gas = 0;
+            if(gas.Length == 1) return gas[0] - cost[0] >= 0 ? 0 : -1;
+
+            int gasMax = int.MaxValue, gasMaxIndex = 0;
+            int gasCostSubFromZero = 0;
+            int gasCostSubFromValid = 0;
+            int index = 0;
+            bool startSum = false;
             for (int i = 0; i < gas.Length; i++)
             {
-                int rmin_gas_here = gas[i - 1] - cost[i];
-                if (rmin_gas_here > 0) // 可以往前走了
+                if(i > 0) gasCostSubFromZero += gas[i - 1] - cost[i - 1];
+                gasMax = gasCostSubFromZero < gasMax ? gasCostSubFromZero : gasMax;
+                // 收集从 0 开始到 i 站所缺少的油量
+                // 用于判断从数组的末尾站到初始站需要至少需要多少油量才能到达首站
+
+                int gasCost = gas[i] - cost[i];
+                if(gasCost >= 0 && startSum == false)
                 {
-                    int tempIndex = i;
-                    while(tempCount < gas.Length)
-                    {
-                        tempCount++;
-                        tempIndex++;
-                        if(tempIndex == gas.Length) tempIndex = 0;
-                        rmin_gas_here += gas[tempIndex] - cost[tempIndex];
-                        if(rmin_gas_here <= 0)
-                        {
-                            if(tempCount == gas.Length) return tempIndex - tempCount < 0 ? gas.Length - tempIndex + tempCount : tempIndex - tempCount;
-                            break;
-                        }
-                    }
+                    gasMaxIndex = gasMax;
+                    startSum = true;
+                    index = i;
                 }
+
+                if(startSum == true)
+                {
+                    gasCostSubFromValid += gasCost;
+                    if(gasCostSubFromValid < 0)
+                    {
+                        startSum = false;
+                        gasCostSubFromValid = 0;
+                    }
+                    if(i == gas.Length - 1 && gasCostSubFromValid >= -gasMaxIndex)
+                        return index;
+                }
+                
+                
             }
 
             return -1;
