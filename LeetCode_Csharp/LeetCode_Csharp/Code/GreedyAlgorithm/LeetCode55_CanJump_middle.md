@@ -18,7 +18,7 @@
 
 ### 代码
 
-```C#
+```CSharp
 public class Solution
 {
     public bool CanJump(int[] nums)
