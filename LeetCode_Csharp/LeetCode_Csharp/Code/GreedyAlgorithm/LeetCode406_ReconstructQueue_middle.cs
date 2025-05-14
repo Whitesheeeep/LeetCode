@@ -16,27 +16,17 @@ namespace LeetCode_Csharp.Code.GreedyAlgorithm
             {
                 if(num1[0] == num2[0])
                     return num1[1].CompareTo(num2[1]);
-                return num1[0].CompareTo(num2[0]);
+                return -num1[0].CompareTo(num2[0]);
             });
             
-            // O(n)
-            int[][] queue = new int[people.Length][];
-            // for(int i = 0; i < queue.Length; i++) queue[i] = new int[2];
-            
-            // O(n^2)
-            for(int i = 0; i < people.Length; i++)
+            List<int[]> queue = [];
+            for(int i = 0 ; i < people.Length; i++)
             {
-                
-                int index  = people[i][1];
-                if(queue[index] == null) queue[index] = people[i];
-                else
-                {
-                    index++;
-                    while(queue[index] != null) index++;
-                    queue[index] = people[i];
-                }
+                queue.Insert(people[i][1], people[i]);
             }
-            return queue;
+             
+
+            return queue.ToArray();
 
         }
     }

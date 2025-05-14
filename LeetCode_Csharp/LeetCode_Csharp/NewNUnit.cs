@@ -1,23 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LeetCode_Csharp.DoublePointer;
 using NUnit.Framework;
-using NUnit;
-using LeetCode_Csharp.MinLengthOfChildList;
-using LeetCode_Csharp.GenerateMatrix;
-using LeetCode_Csharp.LinkedList;
-using System.Diagnostics.CodeAnalysis;
-using static LeetCode_Csharp.StackAndQueue.LeetCode232_QueueBasedOnStack_Easy;
-using LeetCode_Csharp.Code.StackAndQueue;
-using LeetCode_Csharp.Code.HashTable;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using LeetCode_Csharp.Code.String;
-using System.Text;
-using System.Diagnostics;
-using LeetCode_Csharp.Code.BinaryTree;
-using LeetCode_Csharp.Code.BackTracking;
 using LeetCode_Csharp.Code.GreedyAlgorithm;
 
 namespace LeetCode_Csharp
@@ -27,13 +8,27 @@ namespace LeetCode_Csharp
         [SetUp]
         public void Setup()
         {
+
         }
 
         [Test]
         public void Test1()
         {
-            LeetCode45_Jump_middle test = new();
-            int res = test.Jump([2,3,1,1,4]);
+            LeetCode452_FindMinArrowShots_middle test = new();
+            int[][] test_1 = [[1,2],[3,4]],
+            test_2 = [[1,2]],
+            test_3 = [[1,2], [2,3], [3,4]],
+            test_4 = [[1,10], [-1,2], [0,1], [2,4]];
+            
+            int res_1 = test.FindMinArrowShots(test_1);
+            int res_2 = test.FindMinArrowShots(test_2);
+            int res_3 = test.FindMinArrowShots(test_3);
+            int res_4 = test.FindMinArrowShots(test_4);
+            
+            Assert.AreEqual(res_1, 2); 
+            Assert.AreEqual(res_2, 1);
+            Assert.AreEqual(res_3, 2);
+            Assert.AreEqual(res_4, 2);
         }
     }
 }
