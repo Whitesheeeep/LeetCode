@@ -13,34 +13,25 @@ namespace LeetCode_Csharp.Code.GreedyAlgorithm
             if (n < 10) return n;
 
             string s = n.ToString();
-            int tag = -1;
-            char temp = '0';
-            for (int i = 1; i < s.Length; i++)
+            int ptr = 0, up = 0;
+            for (int i = 0; i < s.Length - 1; i++)
             {
-                if (s[i] < s[i - 1]) // 当递减的时候
+                if (s[i] < s[i + 1])
                 {
-                    temp = s[i];
-                    // 往前搜
-                    while (i > 0 && temp < s[i - 1])
-                    {
-                        i--;
-                        tag = i;
-                    }
-                    break;
-                }
+                    ptr = i+1;
+                    up++;
+                } 
+                else if (s[i] > s[i + 1]) break;
+                else up++;
             }
-            if (tag >= 0) // 存在递减
-            {
-                int res = 0;
-                if (tag > 0) res = int.Parse(s[0..(tag - 1)]);
-                res = res*10 + (temp - '0');
-                for(int i = tag + 1; i < s.Length; i++)
-                    res = res * 10 + 9;
-                return res;
-                
-            }
-            else return n;
+            if(up == s.Length - 1) return n;
 
+            int res = ptr > 0 ? Int32.Parse(s[0..ptr]) * 10 + (s[ptr] - '0') - 1 : (s[ptr] - '0') - 1;
+            for (int i = ptr + 1; i < s.Length; i++)
+            {
+                res = res * 10 + 9;
+            }
+            return res;
         }
     }
 }
