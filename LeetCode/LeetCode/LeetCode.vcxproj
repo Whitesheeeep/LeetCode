@@ -127,34 +127,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DetectCycle.cpp" />
-    <ClCompile Include="LeetCode1047_removeDuplicates_Easy.cpp" />
-    <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp" />
-    <ClCompile Include="LeetCode203_DeleteElement_Easy.cpp" />
-    <ClCompile Include="LeetCode206_ReverseLinkedList.cpp" />
+    <ClCompile Include="generateMatrix.cpp" />
     <ClCompile Include="LeetCode209.cpp" />
-    <ClCompile Include="LeetCode20_ValidBraket_Easy.cpp" />
     <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp" />
     <ClCompile Include="LeetCode35.cpp" />
+    <ClCompile Include="LeetCode76_minWindow_tough.cpp" />
     <ClCompile Include="LeetCode904_TotalFruit.cpp" />
-    <ClCompile Include="LeetCode_interview02_07_getIntersectionNode_Easy.cpp" />
     <ClCompile Include="LinkedListSolution.cpp" />
     <ClCompile Include="ListNode.cpp" />
-    <ClCompile Include="MainClass.cpp" />
-    <ClCompile Include="MyLinkedList.cpp" />
-    <ClCompile Include="StackAndQueue.cpp" />
-    <ClCompile Include="StackBasedOnQueue.cpp" />
+    <ClCompile Include="removeElements.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="文本.md" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LeetCode206_ReverseLinkedList.h" />
     <ClInclude Include="LeetCode24_SwapPairs_Middle.h" />
-    <ClInclude Include="LinkedListSolution.h" />
-    <ClInclude Include="ListNode.h" />
     <ClInclude Include="MainClass.h" />
-    <ClInclude Include="MyLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
