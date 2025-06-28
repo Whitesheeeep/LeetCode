@@ -12,20 +12,14 @@ int main()
 }
 
 
-ListNode* removeNthFromEnd(ListNode* head, int n)
+ListNode* GerIntersectionNode(ListNode* headA, ListNode* headB)
 {
-	ListNode* dummyHead = new ListNode(0,head);
-	ListNode* slow = dummyHead, *fast = dummyHead;
-	while (n--)
-	{
-		fast = fast->next;
-	}
+	ListNode* curA = headA, * curB = headB;
 
-	while (fast != nullptr)
+	while (curA != curB)
 	{
-		fast = fast->next;
-		slow = slow->next;
+		curA = curA == NULL ? headB : curA->next;
+		curB = curB == NULL ? headA : curB->next;
 	}
-	slow->next = slow->next->next;
-	return dummyHead->next;
+	return curA;
 }
