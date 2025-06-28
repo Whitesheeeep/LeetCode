@@ -16,6 +16,9 @@
     <Filter Include="源文件\长度最小的子数组|滑动窗口">
       <UniqueIdentifier>{77f68b09-50a1-4dfb-9763-4749c00e1876}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\LinkedList">
+      <UniqueIdentifier>{5ab4642e-b5ff-41fb-b544-4fcd35575567}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode35.cpp">
@@ -27,15 +30,6 @@
     <ClCompile Include="LeetCode904_TotalFruit.cpp">
       <Filter>源文件\长度最小的子数组|滑动窗口</Filter>
     </ClCompile>
-    <ClCompile Include="ListNode.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="LinkedListSolution.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -45,8 +39,23 @@
     <ClCompile Include="generateMatrix.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MyLinkedList.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
     <ClCompile Include="removeElements.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="ListNode.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedListSolution.cpp">
+      <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp">
+      <Filter>源文件\LinkedList</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
