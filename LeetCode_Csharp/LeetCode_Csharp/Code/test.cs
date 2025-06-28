@@ -1,53 +1,26 @@
-int[][] GenerateMatrix(int n)
+ListNode RemoveNthFromEnd(ListNode head, int n)
 {
-    int[][] res = new int[n][];
-    // 初始化交错数组
-    for (int i = 0; i < res.Length; i++)
+    ListNode dummyHead = new ListNode() { next = head };
+    ListNode slow = dummyHead, fast = dummyHead;
+
+    while (n-- >= 0)
     {
-        res[i] = new int[n];
+        fast = fast.next;
     }
 
-    // 变换窗口，控制起始点和终点
-    // 左闭右开
-    int bottom = n - 1, right = n - 1;
-    int up = 0, left = 0;
-    int row = 0, colume = 0;
-    for (int i = 1; i <= n * n;)
+    while (true)
     {
-
-        while (i <= n*n &&colume <= right)
+        if (fast != null)
         {
-            res[row][colume++] = i++;
+            fast = fast.next;
+            slow = slow.next;
         }
-        colume--;
-        up++;
-        
-
-        while (i <= n * n && row <= bottom)
+        else
         {
-            res[row++][colume] = i++;
+            slow.next = slow.next.next;
+            break;
         }
-        right--;
-
-        while (i <= n*n &&colume >= left)
-        {
-            res[row][colume--] = i++;
-        }
-        bottom--;
-
-        while (i <= n*n &&row >= up)
-        {
-            res[row--][colume] = i++;
-        }
-        i--;
-        left++;
     }
-    return res;
-}
+    return dummyHead.next;
 
-var res = GenerateMatrix(3);
-foreach (var item in res)
-{
-    foreach (int i in item)
-    System.Console.WriteLine(i);
 }
