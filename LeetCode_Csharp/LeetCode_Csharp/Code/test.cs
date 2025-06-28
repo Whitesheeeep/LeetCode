@@ -1,26 +1,17 @@
-ListNode RemoveNthFromEnd(ListNode head, int n)
+ListNode GetIntersectionNode(ListNode headA, ListNode headB)
 {
-    ListNode dummyHead = new ListNode() { next = head };
-    ListNode slow = dummyHead, fast = dummyHead;
+    ListNode curA = headA, curB = headB;
+    ListNode res = null;
 
-    while (n-- >= 0)
+
+    // 问题：判断没有交点
+    while (curA != curB)
     {
-        fast = fast.next;
+        curA = curA.next;
+        curB = curB.next;
+        if (curA == null) curA = headB;
+        if (curB == null) curB = headA;
     }
 
-    while (true)
-    {
-        if (fast != null)
-        {
-            fast = fast.next;
-            slow = slow.next;
-        }
-        else
-        {
-            slow.next = slow.next.next;
-            break;
-        }
-    }
-    return dummyHead.next;
-
+    return curA;
 }
