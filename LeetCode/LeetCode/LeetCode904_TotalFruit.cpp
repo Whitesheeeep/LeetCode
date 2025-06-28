@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Solution {
+class LeetCode438_FindAnagrams_middle {
 public:
 	int totalFruit(vector<int>& fruits) {
 		int n = fruits.size();

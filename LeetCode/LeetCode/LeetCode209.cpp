@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Solution {
+class LeetCode438_FindAnagrams_middle {
 public:
 	int minSubArrayLen(int s, vector<int>& nums) {
 		int result = INT32_MAX;

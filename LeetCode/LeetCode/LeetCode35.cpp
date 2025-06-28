@@ -1,12 +1,12 @@
 ﻿#include <iostream>
 #include <vector>
 
-class Solution {
+class LeetCode438_FindAnagrams_middle {
 public:
     int SearchInsert(std::vector<int>& nums, int target);
 };
 
-int Solution::SearchInsert(std::vector<int>& nums, int target)
+int LeetCode438_FindAnagrams_middle::SearchInsert(std::vector<int>& nums, int target)
 {
     if (nums.size() == 0) return 0;
     else

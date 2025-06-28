@@ -1,7 +1,7 @@
 
 #include "ListNode.h"
 
-class Solution {
+class LeetCode438_FindAnagrams_middle {
 public:
 	ListNode* removeElements(ListNode* head, int val)
 	{

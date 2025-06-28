@@ -1,88 +1,64 @@
 #include "MyLinkedList.h"
 
-class MyLinkedList
+int MyLinkedList::get(int index)
 {
-public:
-	struct ListNode
-	{
-		int val;
-		ListNode* next;
-		ListNode() : val(0), next(nullptr) {}
-		ListNode(int x) : val(x), next(nullptr) {}
-		ListNode(int x, ListNode* next) : val(x), next(next) {}
-	};
+	if (index < 0 || index >= size) return -1;
 
-	MyLinkedList()
+	//先找到index的前一个节点
+	ListNode* cur = dummyHead;
+	while (index)
 	{
-		dummyHead = new ListNode(0);
-		size = 0;
+		cur = cur->next;
+		index--;
 	}
 
-	int get(int index)
-	{
-		if (index < 0 || index >= size) return -1;
-		
-		//先找到index的前一个节点
-		ListNode* cur = dummyHead;
-		while (index)
-		{
-			cur = cur->next;
-			index--;
-		}
+	return cur->next->val;
+}
 
-		return cur->next->val;
+void MyLinkedList::addAtHead(int val)
+{
+	addAtIndex(0, val);
+}
+void MyLinkedList::addAtTail(int val)
+{
+	addAtIndex(size, val);
+}
+
+void MyLinkedList::addAtIndex(int index, int val)
+{
+	if (index < 0 || index > size) return;
+	ListNode* cur = dummyHead;
+
+	//找到index的前一个节点
+	while (index)
+	{
+		cur = cur->next;
+		index--;
 	}
 
-	void addAtHead(int val)
-	{
-		addAtIndex(0, val);
-	}
-	void addAtTail(int val)
-	{
-		addAtIndex(size, val);
-	}
+	ListNode* newNode = new ListNode(val);
 
-	void addAtIndex(int index, int val)
-	{
-		if (index < 0 || index > size) return;
-		ListNode* cur = dummyHead;
-		
-		//找到index的前一个节点
-		while(index)
-		{
-			cur = cur->next;
-			index--;
-		}
-		
-		ListNode* newNode = new ListNode(val);
+	//插入节点
+	//注意：这里的顺序不能颠倒，因为我们现在知道cur是index的前一个节点
+	//而我们要插入新节点的 next 指针指向 cur->next
+	//如果我们先将cur->next赋值给newNode->next，那么cur->next就会指向newNode
+	//这样就会丢失cur->next的指向
+	newNode->next = cur->next;
+	cur->next = newNode;
+	size++;
+}
+void MyLinkedList::deleteAtIndex(int index)
+{
+	if (index < 0 || index >= size) return;
 
-		//插入节点
-		//注意：这里的顺序不能颠倒，因为我们现在知道cur是index的前一个节点
-		//而我们要插入新节点的 next 指针指向 cur->next
-		//如果我们先将cur->next赋值给newNode->next，那么cur->next就会指向newNode
-		//这样就会丢失cur->next的指向
-		newNode->next = cur->next;
-		cur->next = newNode;
-		size++;
-	}
-	void deleteAtIndex(int index)
+	//找到index的前一个节点
+	ListNode* cur = dummyHead;
+	while (index)
 	{
-		if (index < 0 || index >= size) return;
-		
-		//找到index的前一个节点
-		ListNode* cur = dummyHead;
-		while (index)
-		{
-			cur = cur->next;
-			index--;
-		}
-		cur->next = cur->next->next;
-		size--;
+		cur = cur->next;
+		index--;
 	}
-
-private:
-	ListNode* dummyHead;
-public:
-	int size;
-};
+	cur->next = cur->next->next;
+	size--;
+}
 

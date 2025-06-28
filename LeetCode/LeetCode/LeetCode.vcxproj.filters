@@ -19,6 +19,18 @@
     <Filter Include="源文件\LinkedList">
       <UniqueIdentifier>{5ab4642e-b5ff-41fb-b544-4fcd35575567}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\StackAndQueue">
+      <UniqueIdentifier>{6c837744-3284-4315-bdc1-027a8cafbd48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\散列表">
+      <UniqueIdentifier>{da8f0889-537a-4c71-b168-72c561e2e87d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\String">
+      <UniqueIdentifier>{147be895-42a1-4f2c-a5c2-bacee32ee428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\String">
+      <UniqueIdentifier>{1293aa30-1a22-4d53-95a6-505bf87c2e45}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode35.cpp">
@@ -57,6 +69,27 @@
     <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp">
       <Filter>源文件\LinkedList</Filter>
     </ClCompile>
+    <ClCompile Include="StackAndQueue.cpp">
+      <Filter>源文件\StackAndQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="StackBasedOnQueue.cpp">
+      <Filter>源文件\StackAndQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="LeetCode20_ValidBraket_Easy.cpp">
+      <Filter>源文件\StackAndQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="LeetCode1047_removeDuplicates_Easy.cpp">
+      <Filter>源文件\StackAndQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="LeetCode349_Intersection_Easy.cpp">
+      <Filter>源文件\散列表</Filter>
+    </ClCompile>
+    <ClCompile Include="LeetCode438_FindAnagrams_middle.cpp">
+      <Filter>源文件\散列表</Filter>
+    </ClCompile>
+    <ClCompile Include="KamaCoder54_ReplaceNumber.cpp">
+      <Filter>源文件\String</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="文本.md">
@@ -69,6 +102,18 @@
     </ClInclude>
     <ClInclude Include="LeetCode24_SwapPairs_Middle.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>头文件\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLinkedList.h">
+      <Filter>头文件\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListSolution.h">
+      <Filter>头文件\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceNumber.h">
+      <Filter>头文件\String</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

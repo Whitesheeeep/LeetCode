@@ -127,12 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="generateMatrix.cpp" />
+    <ClCompile Include="DetectCycle.cpp" />
+    <ClCompile Include="KamaCoder54_ReplaceNumber.cpp" />
+    <ClCompile Include="LeetCode1047_removeDuplicates_Easy.cpp" />
     <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp" />
     <ClCompile Include="LeetCode209.cpp" />
     <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp" />
+    <ClCompile Include="LeetCode349_Intersection_Easy.cpp" />
     <ClCompile Include="LeetCode35.cpp" />
-    <ClCompile Include="LeetCode76_minWindow_tough.cpp" />
+    <ClCompile Include="LeetCode438_FindAnagrams_middle.cpp" />
     <ClCompile Include="LeetCode904_TotalFruit.cpp" />
     <ClCompile Include="LinkedListSolution.cpp" />
     <ClCompile Include="ListNode.cpp" />
@@ -146,6 +149,8 @@
   <ItemGroup>
     <ClInclude Include="LeetCode24_SwapPairs_Middle.h" />
     <ClInclude Include="MainClass.h" />
+    <ClInclude Include="MyLinkedList.h" />
+    <ClInclude Include="ReplaceNumber.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
