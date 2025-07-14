@@ -1,4 +1,4 @@
-﻿public class Solution
+﻿public partial class Solution
 {
     public int SearchInsert(int[] nums, int target)
     {
