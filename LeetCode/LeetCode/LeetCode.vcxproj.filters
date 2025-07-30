@@ -94,5 +94,17 @@
     <ClInclude Include="LeetCode24_SwapPairs_Middle.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>头文件\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLinkedList.h">
+      <Filter>头文件\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedListSolution.h">
+      <Filter>头文件\LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceNumber.h">
+      <Filter>头文件\String</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

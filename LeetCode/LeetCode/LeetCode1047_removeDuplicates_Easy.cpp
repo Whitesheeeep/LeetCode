@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Solution {
+class LeetCode438_FindAnagrams_middle {
 public:
     string removeDuplicates(string s) {
         stack<char> stack;

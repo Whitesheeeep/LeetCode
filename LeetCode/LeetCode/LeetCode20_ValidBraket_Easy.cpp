@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Solution {
+class LeetCode438_FindAnagrams_middle {
 public:
     bool isValid(string s) {
         stack<int> stack;

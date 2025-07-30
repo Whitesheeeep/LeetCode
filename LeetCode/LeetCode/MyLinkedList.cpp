@@ -22,7 +22,7 @@
 // 	{
 // 		if (index < 0 || index >= size) return -1;
 // 		
-// 		//ï¿½ï¿½ï¿½Òµï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
+// 		//?index???
 // 		ListNode* cur = dummyHead;
 // 		while (index)
 // 		{
@@ -47,7 +47,7 @@
 // 		if (index < 0 || index > size) return;
 // 		ListNode* cur = dummyHead;
 // 		
-// 		//ï¿½Òµï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
+// 		//?index???
 // 		while(index)
 // 		{
 // 			cur = cur->next;
@@ -56,11 +56,11 @@
 // 		
 // 		ListNode* newNode = new ListNode(val);
 //
-// 		//ï¿½ï¿½ï¿½ï¿½Úµï¿½
-// 		//×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½Üµßµï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½curï¿½ï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
-// 		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Â½Úµï¿½ï¿½ next Ö¸ï¿½ï¿½Ö¸ï¿½ï¿½ cur->next
-// 		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½cur->nextï¿½ï¿½Öµï¿½ï¿½newNode->nextï¿½ï¿½ï¿½ï¿½Ã´cur->nextï¿½Í»ï¿½Ö¸ï¿½ï¿½newNode
-// 		//ï¿½ï¿½ï¿½ï¿½ï¿½Í»á¶ªÊ§cur->nextï¿½ï¿½Ö¸ï¿½ï¿½
+// 		//?
+// 		//???????curindex???
+// 		//?½? next ?? cur->next
+// 		//?cur->next?newNode->nextôcur->next??newNode
+// 		//???cur->next?
 // 		newNode->next = cur->next;
 // 		cur->next = newNode;
 // 		size++;
@@ -69,7 +69,7 @@
 // 	{
 // 		if (index < 0 || index >= size) return;
 // 		
-// 		//ï¿½Òµï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
+// 		//?index???
 // 		ListNode* cur = dummyHead;
 // 		while (index)
 // 		{
