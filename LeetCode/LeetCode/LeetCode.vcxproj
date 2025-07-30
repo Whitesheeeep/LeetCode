@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FourSumCount.cpp" />
     <ClCompile Include="generateMatrix.cpp" />
+    <ClCompile Include="LC15.cpp" />
+    <ClCompile Include="LC18.cpp" />
+    <ClCompile Include="LC202.cpp" />
+    <ClCompile Include="LC242.cpp" />
+    <ClCompile Include="LC383.cpp" />
     <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp" />
     <ClCompile Include="LeetCode209.cpp" />
     <ClCompile Include="LeetCode24_SwapPairs_Middle.cpp" />

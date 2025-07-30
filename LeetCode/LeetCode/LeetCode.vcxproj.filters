@@ -19,6 +19,12 @@
     <Filter Include="源文件\LinkedList">
       <UniqueIdentifier>{5ab4642e-b5ff-41fb-b544-4fcd35575567}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\HashTable">
+      <UniqueIdentifier>{d245f96c-743e-4f43-9b10-128a445813ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Map">
+      <UniqueIdentifier>{0f20d901-4d8b-4e72-8f30-6e0ca4ae559e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LeetCode35.cpp">
@@ -56,6 +62,24 @@
     </ClCompile>
     <ClCompile Include="LeetCode19_removeNthFromEnd_middle.cpp">
       <Filter>源文件\LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="LC242.cpp">
+      <Filter>源文件\HashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="LC202.cpp">
+      <Filter>源文件\HashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="FourSumCount.cpp">
+      <Filter>源文件\HashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="LC383.cpp">
+      <Filter>源文件\HashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="LC15.cpp">
+      <Filter>源文件\HashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="LC18.cpp">
+      <Filter>源文件\HashTable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

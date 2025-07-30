@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.lua": "lua",
+        "*.cs": "csharp",
+        "allroute": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "iostream": "cpp"
+    }
+}

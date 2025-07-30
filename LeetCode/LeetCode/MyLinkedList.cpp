@@ -1,88 +1,88 @@
-#include "MyLinkedList.h"
-
-class MyLinkedList
-{
-public:
-	struct ListNode
-	{
-		int val;
-		ListNode* next;
-		ListNode() : val(0), next(nullptr) {}
-		ListNode(int x) : val(x), next(nullptr) {}
-		ListNode(int x, ListNode* next) : val(x), next(next) {}
-	};
-
-	MyLinkedList()
-	{
-		dummyHead = new ListNode(0);
-		size = 0;
-	}
-
-	int get(int index)
-	{
-		if (index < 0 || index >= size) return -1;
-		
-		//ÏÈÕÒµ½indexµÄÇ°Ò»¸ö½Úµã
-		ListNode* cur = dummyHead;
-		while (index)
-		{
-			cur = cur->next;
-			index--;
-		}
-
-		return cur->next->val;
-	}
-
-	void addAtHead(int val)
-	{
-		addAtIndex(0, val);
-	}
-	void addAtTail(int val)
-	{
-		addAtIndex(size, val);
-	}
-
-	void addAtIndex(int index, int val)
-	{
-		if (index < 0 || index > size) return;
-		ListNode* cur = dummyHead;
-		
-		//ÕÒµ½indexµÄÇ°Ò»¸ö½Úµã
-		while(index)
-		{
-			cur = cur->next;
-			index--;
-		}
-		
-		ListNode* newNode = new ListNode(val);
-
-		//²åÈë½Úµã
-		//×¢Òâ£ºÕâÀïµÄË³Ðò²»ÄÜµßµ¹£¬ÒòÎªÎÒÃÇÏÖÔÚÖªµÀcurÊÇindexµÄÇ°Ò»¸ö½Úµã
-		//¶øÎÒÃÇÒª²åÈëÐÂ½ÚµãµÄ next Ö¸ÕëÖ¸Ïò cur->next
-		//Èç¹ûÎÒÃÇÏÈ½«cur->next¸³Öµ¸ønewNode->next£¬ÄÇÃ´cur->next¾Í»áÖ¸ÏònewNode
-		//ÕâÑù¾Í»á¶ªÊ§cur->nextµÄÖ¸Ïò
-		newNode->next = cur->next;
-		cur->next = newNode;
-		size++;
-	}
-	void deleteAtIndex(int index)
-	{
-		if (index < 0 || index >= size) return;
-		
-		//ÕÒµ½indexµÄÇ°Ò»¸ö½Úµã
-		ListNode* cur = dummyHead;
-		while (index)
-		{
-			cur = cur->next;
-			index--;
-		}
-		cur->next = cur->next->next;
-		size--;
-	}
-
-private:
-	ListNode* dummyHead;
-public:
-	int size;
-};
-
+// #include "MyLinkedList.h"
+//
+// class MyLinkedList
+// {
+// public:
+// 	struct ListNode
+// 	{
+// 		int val;
+// 		ListNode* next;
+// 		ListNode() : val(0), next(nullptr) {}
+// 		ListNode(int x) : val(x), next(nullptr) {}
+// 		ListNode(int x, ListNode* next) : val(x), next(next) {}
+// 	};
+//
+// 	MyLinkedList()
+// 	{
+// 		dummyHead = new ListNode(0);
+// 		size = 0;
+// 	}
+//
+// 	int get(int index)
+// 	{
+// 		if (index < 0 || index >= size) return -1;
+// 		
+// 		//ï¿½ï¿½ï¿½Òµï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
+// 		ListNode* cur = dummyHead;
+// 		while (index)
+// 		{
+// 			cur = cur->next;
+// 			index--;
+// 		}
+//
+// 		return cur->next->val;
+// 	}
+//
+// 	void addAtHead(int val)
+// 	{
+// 		addAtIndex(0, val);
+// 	}
+// 	void addAtTail(int val)
+// 	{
+// 		addAtIndex(size, val);
+// 	}
+//
+// 	void addAtIndex(int index, int val)
+// 	{
+// 		if (index < 0 || index > size) return;
+// 		ListNode* cur = dummyHead;
+// 		
+// 		//ï¿½Òµï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
+// 		while(index)
+// 		{
+// 			cur = cur->next;
+// 			index--;
+// 		}
+// 		
+// 		ListNode* newNode = new ListNode(val);
+//
+// 		//ï¿½ï¿½ï¿½ï¿½Úµï¿½
+// 		//×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½Üµßµï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½curï¿½ï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
+// 		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Â½Úµï¿½ï¿½ next Ö¸ï¿½ï¿½Ö¸ï¿½ï¿½ cur->next
+// 		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½cur->nextï¿½ï¿½Öµï¿½ï¿½newNode->nextï¿½ï¿½ï¿½ï¿½Ã´cur->nextï¿½Í»ï¿½Ö¸ï¿½ï¿½newNode
+// 		//ï¿½ï¿½ï¿½ï¿½ï¿½Í»á¶ªÊ§cur->nextï¿½ï¿½Ö¸ï¿½ï¿½
+// 		newNode->next = cur->next;
+// 		cur->next = newNode;
+// 		size++;
+// 	}
+// 	void deleteAtIndex(int index)
+// 	{
+// 		if (index < 0 || index >= size) return;
+// 		
+// 		//ï¿½Òµï¿½indexï¿½ï¿½Ç°Ò»ï¿½ï¿½ï¿½Úµï¿½
+// 		ListNode* cur = dummyHead;
+// 		while (index)
+// 		{
+// 			cur = cur->next;
+// 			index--;
+// 		}
+// 		cur->next = cur->next->next;
+// 		size--;
+// 	}
+//
+// private:
+// 	ListNode* dummyHead;
+// public:
+// 	int size;
+// };
+//
