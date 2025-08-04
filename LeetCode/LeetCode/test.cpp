@@ -1,25 +1,16 @@
 #include <unordered_set>
 #include <vector>
 #include <iostream>
-#include "ListNode.h"
+#include <unordered_map>
 
 using namespace std;
 
 int main()
 {
-	cout << "main" << endl;
-	return 0;
+	unordered_map<int, int> myMap;
+	myMap[1]= 1;
+	for(auto i : myMap)
+		cout << i.first << " " << i.second;
 }
 
 
-ListNode* GerIntersectionNode(ListNode* headA, ListNode* headB)
-{
-	ListNode* curA = headA, * curB = headB;
-
-	while (curA != curB)
-	{
-		curA = curA == NULL ? headB : curA->next;
-		curB = curB == NULL ? headA : curB->next;
-	}
-	return curA;
-}

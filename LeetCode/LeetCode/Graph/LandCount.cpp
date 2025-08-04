@@ -8,6 +8,7 @@ int countIslandBFS(const vector<vector<int>> &grid, int n, int m);
 void findIslandDFS(const vector<vector<int>> &grid, vector<vector<bool>> &visited, int n, int m);
 void findIslandBFS(const vector<vector<int>> &grid, vector<vector<int>> &visited, int n, int m);
 int islandCount(const vector<vector<int>> &grid, vector<vector<bool>> &visited, int curX, int curY);
+vector<pair<int, int>> DeleteIsland(const vector<vector<int>> &grid, vector<vector<bool>> &visited, int curX, int curY);
 
 int dir[4][2] = {0, 1, 1, 0, 0, -1, -1, 0};
 
@@ -29,6 +30,7 @@ int main()
     }
 
     vector<vector<bool>> visited(n, vector<bool>(m, false));
+    vector<pair<int, int>> islandList;
     int res = 0;
     for (int i = 0; i < n; i++)
     {
@@ -36,15 +38,81 @@ int main()
         {
             if (!visited[i][j] && grid[i][j] == 1)
             {
-                res += islandCount(grid, visited, i , j);
-                cout<< res << endl;
+                auto a = DeleteIsland(grid, visited, i,j);
+                if(a.size() > 0) islandList.insert(islandList.end(), a.begin(), a.end());
             }
         }
     }
 
-    cout << res << endl;
+    for (auto item : islandList)
+        grid[item.first][item.second] = 0;
+
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = 0; j < m; j++)
+        {
+            cout << grid[i][j] << " ";
+        }
+        cout << "\n";
+    }
 
     return 0;
+}
+
+void DeleteIslandDFS(const vector<vector<int>>& grid, vector<vector<bool>> &visited, int curX, int curY)
+{
+    for(int i = 0; i < 4; i++)
+    {
+        int nextx = curX + dir[i][0];
+        int nexty = curY + dir[i][1];
+        if (nextx < 0 || nexty < 0 || nextx >= grid.size() || nexty >= grid[0].size() || !grid[nextx][nexty] || visited[nextx][nexty])
+            continue;
+        visited[nextx][nexty] = true;
+        DeleteIslandDFS(grid, visited, nextx, nexty);
+    }
+}
+
+
+// 沉没孤岛
+vector<pair<int, int>> DeleteIsland(const vector<vector<int>> &grid, vector<vector<bool>> &visited,  int curX, int curY)
+{
+    vector<pair<int, int>> islandList;
+    queue<pair<int, int>> nodeQueue;
+    nodeQueue.push({curX, curY});
+    visited[curX][curY] = true;
+    bool isIsland = true;
+    if (curX == 0 || curX == grid.size() - 1 || curY == 0 || curY == grid[0].size() - 1)
+    {
+        isIsland = false;
+    }
+    else
+        islandList.push_back({curX, curY});
+    while (!nodeQueue.empty())
+    {
+        auto node = nodeQueue.front();
+        nodeQueue.pop();
+        for (int i = 0; i < 4; i++)
+        {
+            int nextx = node.first + dir[i][0];
+            int nexty = node.second + dir[i][1];
+            if (nextx < 0 || nexty < 0 || nextx >= grid.size() || nexty >= grid[0].size() || grid[nextx][nexty] == 0 || visited[nextx][nexty])
+                continue;
+            nodeQueue.push({nextx, nexty});
+            visited[nextx][nexty] = true;
+            if (isIsland)
+            {
+                // 不是孤岛
+                if ((nextx == 0 || nexty == 0 || nextx == grid.size() - 1 || nexty == grid[0].size() - 1)) // 如果陆地遍历到边缘了，不是孤岛
+                {
+                    isIsland = false;
+                    islandList.clear();
+                }
+                else // 是孤岛
+                islandList.push_back({nextx, nexty});
+            }
+        }
+    }
+    return islandList;
 }
 
 /// @brief 计算有多少独立岛屿
@@ -78,7 +146,7 @@ int islandCount(const vector<vector<int>> &grid, vector<vector<bool>> &visited, 
     nodeQueue.push({curX, curY});
     visited[curX][curY] = true;
     bool isIsland = true;
-    if(curX == 0 || curX == grid.size() -1 || curY == 0 || curY == grid[0].size() -1)
+    if (curX == 0 || curX == grid.size() - 1 || curY == 0 || curY == grid[0].size() - 1)
     {
         res = 0;
         isIsland = false;
@@ -97,17 +165,16 @@ int islandCount(const vector<vector<int>> &grid, vector<vector<bool>> &visited, 
                 continue;
             nodeQueue.push({nextx, nexty});
             visited[nextx][nexty] = true;
-            if(grid[nextx][nexty] == 1 && isIsland)
+            if (grid[nextx][nexty] == 1 && isIsland)
             {
                 if ((nextx == 0 || nexty == 0 || nextx == grid.size() - 1 || nexty == grid[0].size() - 1)) // 如果陆地遍历到边缘了
-                    {
-                        res = 0;
-                        isIsland = false;
-                    }
+                {
+                    res = 0;
+                    isIsland = false;
+                }
                 else
                     res++;
             }
-            
         }
     }
     return res;
