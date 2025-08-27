@@ -7,7 +7,7 @@
 // @lc code=start
 public partial class Solution {
     public int SumOfGoodNumbers(int[] nums, int k) {
-        
+        return 0;
     }
 }
 // @lc code=end

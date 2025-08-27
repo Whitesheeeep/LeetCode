@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using LeetCode_Csharp.Code.GreedyAlgorithm;
+using Graph;
 
 namespace LeetCode_Csharp
 {
@@ -14,10 +14,8 @@ namespace LeetCode_Csharp
         [Test]
         public void Test1()
         {
-            LeetCode56_Merge_middle test = new();
-            int[][] testArray = [[1,4],[0,4]];
-            var res = test.Merge(testArray);
-            Assert.AreEqual(res, new int[][]{[0,4]});
+            int n = Console.Read(); int m = Console.Read();
+            CountIsland.MyMain(n,m);
         }
     }
 }
