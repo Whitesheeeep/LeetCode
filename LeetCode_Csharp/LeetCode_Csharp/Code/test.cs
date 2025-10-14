@@ -2,7 +2,14 @@ using LeetCode_Csharp.Code;
 using LeetCode_Csharp.Code.DoublePointer;
 using LeetCode_Csharp.Code.GreedyAlgorithm;
 
+while(true)
+{
+    string input = Console.ReadLine();
+    if (String.IsNullOrEmpty(input))
+    {
+        break;
+    }
 
-int[] prices = [1, 2, 3, 0, 2];
-int res = Solution.MaxProfitWithFroze(prices);
-System.Console.WriteLine(res);
+    Solution.LongestPalindromeSubseq(input);
+}
+
