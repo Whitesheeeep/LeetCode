@@ -1,15 +1,14 @@
-using LeetCode_Csharp.Code;
-using LeetCode_Csharp.Code.DoublePointer;
-using LeetCode_Csharp.Code.GreedyAlgorithm;
+List<int> nums = new();
 
-while(true)
+// 统计频率
+Dictionary<int, int> countMap = new();
+foreach (int num in nums)
 {
-    string input = Console.ReadLine();
-    if (String.IsNullOrEmpty(input))
-    {
-        break;
-    }
-
-    Solution.LongestPalindromeSubseq(input);
+    if (countMap.ContainsKey(num))
+        countMap[num]++;
+    else
+        countMap[num] = 1;
 }
+
+PriorityQueue<int, int> priorityQueue = new();
 
