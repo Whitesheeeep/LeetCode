@@ -1,5 +1,7 @@
 using System;
+using System.Buffers;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,51 +9,95 @@ namespace LeetCode_Csharp.Code.BackTracking
 {
     public class LeetCode37_SolveSudoku_tough
     {
+        List<HashSet<char>> row; // 每一行存在那些 char
+        List<HashSet<char>> column; // 每一列存在那些 char
+        List<List<HashSet<char>>> chunk; // 每个 3*3 存在那些 char
+        static readonly char[] chars = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
         public void SolveSudoku(char[][] board)
         {
-            // 初始化
-            bool[][] usedChars = new bool[9][];
-            for(int i = 0; i < 9; i++)
+            row = new List<HashSet<char>>(9);
+            column = new List<HashSet<char>>(9);
+            chunk = new List<List<HashSet<char>>>(3);
+
+            // 初始化 row 和 column
+            for (int i = 0; i < 9; i++)
             {
-                usedChars[i] = new bool[9];
+                row.Add(new HashSet<char>());
+                column.Add(new HashSet<char>());
             }
+
+            // 初始化 chunk（3 × 3）
+            for (int i = 0; i < 3; i++)
+            {
+                var chunkRow = new List<HashSet<char>>(3);
+                for (int j = 0; j < 3; j++)
+                    chunkRow.Add(new HashSet<char>());
+                chunk.Add(chunkRow);
+            }
+            // 将已有的存进去
+            // 读取初始棋盘
+            for (int x = 0; x < 9; x++)
+            {
+                for (int y = 0; y < 9; y++)
+                {
+                    char c = board[x][y];
+                    if (c != '.')
+                    {
+                        row[x].Add(c);
+                        column[y].Add(c);
+                        chunk[x / 3][y / 3].Add(c);
+                    }
+                }
+            }
+            BackTracking(board, 0, 0);
         }
 
-        public bool BackTracking(char[][] board, int row, bool[][] usedChars)
+        bool BackTracking(char[][] board, int x, int y)
         {
-            if(row == board.Length)
+            if (x > 8 || y > 8)
             {
                 return true;
             }
 
-            // 使用数组进行存储，index 代表这个数组对应的index的数值 代表的数字是否被占用
-            for(int i = 0; i < 9; i++)
+            if (board[x][y] != '.')
             {
-                char temp = board[row][i];
-                // 如果有数字，就存储，并且往下一列看
-                if(temp != '.')
+                if (y == 8)
                 {
-                    usedChars[row][temp - '1'] = true;
-                    continue;
+                    return BackTracking(board, x + 1, 0);
+                }
+                else
+                {
+                    return BackTracking(board, x, y + 1);
                 }
 
-                // 这个格子是空的，填入逐个填入数字
-                for(int j = 1; j <= 9; j++)
+            }
+            foreach (var item in chars)
+            {
+                if (!row[x].Contains(item) && !column[y].Contains(item) && !chunk[x / 3][y / 3].Contains(item))
                 {
-                    // if(usedChars[row][i - 1] == true) continue;
-                    if(!IsValid(usedChars,i)) continue;
-
-                    usedChars[row][i-1] = true;
-                    
+                    board[x][y] = item;
+                    row[x].Add(item);
+                    column[y].Add(item);
+                    chunk[x / 3][y / 3].Add(item);
+                    if (y == 8)
+                    {
+                        if (BackTracking(board, x + 1, 0)) return true;
+                    }
+                    else
+                    {
+                        if (BackTracking(board, x, y + 1))
+                            return true;
+                    }
+                    board[x][y] = '.';
+                    row[x].Remove(item);
+                    column[y].Remove(item);
+                    chunk[x / 3][y / 3].Remove(item);
                 }
             }
             return false;
-        }
 
-        private bool IsValid(bool[][] usedChars, int i)
-        {
-            throw new NotImplementedException();
+
         }
     }
 }
