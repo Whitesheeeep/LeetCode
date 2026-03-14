@@ -78,7 +78,7 @@ public:
             return;
         MiddleOrderTraversal(rootNode->left);
         cout << rootNode->data << endl;
-        MiddleOrderTraversal(rootNode->right);
+        MiddleOrderTraversal(rootNode->right);d
     }
 
     void MiddleOrderTraversal_Iteration(TreeNode<T> *rootNode)
