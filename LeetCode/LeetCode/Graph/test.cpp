@@ -1,77 +1,48 @@
+#include <climits>
 #include <iostream>
+#include <list>
 #include <vector>
-#include <queue>
 
 using namespace std;
 
-int dir[4][2] = {-1, 0, 0, -1, 1, 0, 0, 1};
-vector<pair<int, int>> res;
+struct Edge {
+  int to;
+  int w;
+};
 
+int main() {
+  // cout << "test" << endl;
+  int n, m, s, t, v;
+  cin >> n >> m;
 
-void countLandArea(const vector<vector<int>> &grid, vector<vector<bool>> &visited, int x, int y)
-{
-    queue<pair<int, int>> que;
-    que.push({x, y});
-    visited[x][y] = true;
-    while (!que.empty())
-    {
-        auto cur = que.front();
-        que.pop();
-        for (int i = 0; i < 4; i++)
-        {
-            int nextx = cur.first + dir[i][0];
-            int nexty = cur.second + dir[i][1];
-            if (nextx < 0 || nextx >= grid.size() || nexty < 0 || nexty >= grid[0].size() || grid[nextx][nexty] == 0 || visited[nextx][nexty])
-                continue;
-            visited[nextx][nexty] = true;
-            que.push({nextx, nexty});
+  vector<list<Edge>> graph(n + 1, list<Edge>());
+  vector<int> minDis(n + 1, INT_MAX);
+
+  while (m--) {
+    cin >> s >> t >> v;
+    graph[s].push_back({t, v});
+  }
+
+  // 鍒濆鍖�
+  minDis[1] = 0;
+  for(int j = 1; j < n; j++)
+  {
+    for (int i = 1; i <= n; i++) {
+      // 鏉惧紱
+      for (Edge edge : graph[i]) {
+        if (minDis[i] != INT_MAX && minDis[i] + edge.w < minDis[edge.to]) {
+          minDis[edge.to] = minDis[i] + edge.w;
         }
+      }
     }
-}
+  }
 
-int countLandAreaBfs(const vector<vector<int>> &grid, vector<vector<bool>> &visited, int x, int y)
-{
-    int res = 1;
-    for (int i = 0; i < 4; i++)
-    {
-        int nextx = x + dir[i][0];
-        int nexty = y + dir[i][1];
-        if (nextx < 0 || nextx >= grid.size() || nexty < 0 || nexty >= grid[0].size() || grid[nextx][nexty] == 0 || visited[nextx][nexty])
-            continue;
-        visited[nextx][nexty] = true;
-        res += countLandAreaBfs(grid, visited, nextx, nexty);
-        // cout << res << endl;
-    }
-    return res;
-}
+//   for (int i = 1; i <= n; i++) {
+//     cout << i << " " << minDis[i] << endl;
+//   }
 
-int main()
-{
-    int n, m;
-    cin >> n >> m;
-
-    vector<vector<int>> grid(n, vector<int>(m, 0));
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> grid[i][j];
-        }
-    }
-
-    vector<vector<bool>> visited(n, vector<bool>(m, false));
-    int maxArea = 0;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            if (visited[i][j] || grid[i][j] == 0)
-                continue;
-            visited[i][j] = true;
-            int temp = countLandAreaBfs(grid, visited, i, j);
-            maxArea = max(temp, maxArea);
-        }
-    }
-    cout << maxArea << endl;
-    return 0;
+  if (minDis[n] == INT_MAX)
+    cout << "unconnected" << endl;
+  else
+    cout << minDis[n] << endl;
 }
