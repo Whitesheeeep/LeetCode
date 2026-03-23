@@ -6,39 +6,36 @@ using namespace std;
 
 struct Edge
 {
-    int to;
-    int w;
+    int to, w;
+    Edge(int to, int w): to(to), w(w){}
 };
 
 int main()
 {
-    int n,m,s,t,v;
+    int n,m,s,t,v,src,dst,k;
     cin >> n >> m;
-
     vector<vector<Edge>> graph(n + 1, vector<Edge>());
     vector<int> minDis(n + 1, INT_MAX);
-    bool hasLoop = false;
-    minDis[1] = 0;
 
     while (m--) {
         cin >> s >> t >> v;
-        graph[s].push_back({t,v});
+        graph[s].push_back(Edge(t,v));
     }
-    
-    for (int i = 1; i <= n; i++)
+    cin >> src >> dst >> k;
+    minDis[src] = 0;
+
+    for (int i = 0; i <= k; i++)
     {
-        // 松弛
         for (int j = 1; j <= n; j++){
             for (Edge edge : graph[j]) {
                 if (minDis[j] != INT_MAX && minDis[j] + edge.w < minDis[edge.to]){
                     minDis[edge.to] = minDis[j] + edge.w;
-                    if (i == n) hasLoop = true;
+                    
                 }
             }
         }
     }
 
-    if (hasLoop) cout << "circle" << endl;
-    else if (minDis[n] == INT_MAX) cout << "unconnected" << endl;
-    else cout << minDis[n] << endl;
+    if (minDis[dst] == INT_MAX) cout << "unreachable" << endl;
+    else cout << minDis[dst] << endl;
 }
