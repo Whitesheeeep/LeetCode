@@ -16,6 +16,7 @@ int main()
     cin >> n >> m;
     vector<vector<Edge>> graph(n + 1, vector<Edge>());
     vector<int> minDis(n + 1, INT_MAX);
+    vector<int> minDis_copy;
 
     while (m--) {
         cin >> s >> t >> v;
@@ -26,11 +27,11 @@ int main()
 
     for (int i = 0; i <= k; i++)
     {
+        minDis_copy = minDis;
         for (int j = 1; j <= n; j++){
             for (Edge edge : graph[j]) {
-                if (minDis[j] != INT_MAX && minDis[j] + edge.w < minDis[edge.to]){
-                    minDis[edge.to] = minDis[j] + edge.w;
-                    
+                if (minDis_copy[j] != INT_MAX && minDis_copy[j] + edge.w < minDis[edge.to]){
+                    minDis[edge.to] = minDis_copy[j] + edge.w;
                 }
             }
         }
