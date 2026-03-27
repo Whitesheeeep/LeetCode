@@ -23,40 +23,28 @@ int main() {
   }
   cin >> src >> dst >> k;
   minDis[src] = 0;
+  
   queue<int> que;
-  vector<int> count(n + 1, 0);
-  vector<bool> inQue(n + 1, false);
-  que.push(1);
-  count[1]++;
-  inQue[1] = true;
+  que.push(src);
 
-  while (!que.empty()) {
+  k++;
+  while (k-- && !que.empty()) {
+    minDis_copy = minDis;
     int num = que.size();
-
     while (num--) {
-      auto node = que.front();
-      que.pop();
-      inQue[node] = false;
-      for (Edge edge : graph[node]) {
-        if (minDis[node] + edge.w < minDis[edge.to]) {
-          minDis[edge.to] = minDis[node] + edge.w;
-          if (!inQue[edge.to])
-          {
-            que.push(edge.to);
-            inQue[edge.to] = true;
-            count[edge.to]++;
-            if (count[edge.to] == k + 1)
-            {
-                if (minDis[dst] != INT_MAX)
-                    cout << minDis[dst] << endl;
-                else
-                    cout << "unreachable" << endl;
-            }
-          }
+      auto node = que.front(); que.pop();
+      for (Edge edge : graph[node]){
+        if (minDis_copy[node] != INT_MAX &&  minDis_copy[node] + edge.w < minDis[edge.to])
+        {
+          minDis[edge.to] = minDis_copy[node] + edge.w;
+          que.push(edge.to);
         }
       }
     }
   }
+
+  
+  
 
   if (minDis[dst] == INT_MAX)
     cout << "unreachable" << endl;
