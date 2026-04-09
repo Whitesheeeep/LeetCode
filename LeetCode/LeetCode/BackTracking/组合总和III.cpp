@@ -13,7 +13,7 @@ void backTracking(vector<int> &path, vector<vector<int>> &res, int target,
   }
 
   for (int i = startIndex; i < candidates.size(); i++) {
-  if (candidates[i] > target)
+  if (candidates[i] > target) return;
 	if (i > startIndex && candidates[i] == candidates[i-1]) continue;
 	path.push_back(candidates[i]);
 	backTracking(path, res, target, i + 1, curSum + candidates[i], candidates);
