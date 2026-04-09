@@ -6,12 +6,14 @@ using namespace std;
 
 void backTracking(vector<int> &path, vector<vector<int>> &res, int target,
                   int startIndex, int curSum, const vector<int>& candidates) {
+  if (curSum > target) return;
   if (curSum == target) {
 	res.push_back(path);
 	return;
   }
 
   for (int i = startIndex; i < candidates.size(); i++) {
+  if (candidates[i] > target)
 	if (i > startIndex && candidates[i] == candidates[i-1]) continue;
 	path.push_back(candidates[i]);
 	backTracking(path, res, target, i + 1, curSum + candidates[i], candidates);
