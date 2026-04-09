@@ -1,52 +1,47 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
 
-void backTracking(const vector<vector<int>>& graph, vector<int>& path, vector<vector<int>>& res, int node, int n)
-{
-    if (node == n)
-    {
-        res.push_back(path);
-        return;
-    }
+unordered_map<char, vector<char>> phoneMap {
+	{'2' , {'a', 'b', 'c'}},
+	{'3' , {'d', 'e', 'f'}},
+	{'4' , {'g', 'h', 'i'}},
+	{'5' , {'j', 'k', 'l'}},
+	{'6' , {'m', 'n', 'o'}},
+	{'7' , {'p', 'q', 'r', 's'}},
+	{'8' , {'t', 'u', 'v'}},
+	{'9' , {'w', 'x', 'y', 'z'}}
+};
 
+void backTracking(string& digits, vector<string>& res, int startIndex, string& path){
+	if (path.size() == digits.size()){
+		res.push_back(path);
+		return;
+	}
 
-    for (int i = 0; i < graph[node].size(); i++)
-    {
-        path.push_back(graph[node][i]);
-        backTracking(graph, path, res, graph[node][i], 1);
-        path.pop_back();
-    }
+	for (int i = startIndex; i < digits.size(); i++)
+	{
+		for (int j = 0; j < phoneMap[digits[i]].size(); j++) {
+			path.push_back(phoneMap[i][j]);
+			backTracking(digits, res, i+1, path);
+			path.pop_back();
+		}
+	}
 }
 
+int main(){
+	string digits;
+	cin >> digits;
 
-int main()
-{
-    int n, m;
-    cin >> n >> m;
+	vector<string> res;
+	string path="";
+	backTracking(digits, res, 0, path);
 
-    vector<vector<int>> graph(n + 1, vector<int>());
-
-    int from, to;
-    while (m--)
-    {
-        cin >> from >> to;
-        graph[from].push_back(to);
-    }
-
-    vector<int> path;
-    vector<vector<int>> res;
-
-    backTracking(graph, path, res, 1, n);
-
-    for (auto q : res)
-    {
-        for (int i = 0; i < q.size(); i++)
-        {
-            cout << q[i];
-            if (i < q.size() - 1) cout << " ";
-        }
-    }
-
+	// 输出
+	for (auto s : res) {
+		cout << s << endl;
+	}
 }
