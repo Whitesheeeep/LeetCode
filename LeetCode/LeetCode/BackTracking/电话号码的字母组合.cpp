@@ -25,7 +25,7 @@ void backTracking(string& digits, vector<string>& res, int startIndex, string& p
 	for (int i = startIndex; i < digits.size(); i++)
 	{
 		for (int j = 0; j < phoneMap[digits[i]].size(); j++) {
-			path.push_back(phoneMap[i][j]);
+			path.push_back(phoneMap[digits[i]][j]);
 			backTracking(digits, res, i+1, path);
 			path.pop_back();
 		}
