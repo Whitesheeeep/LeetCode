@@ -12,7 +12,7 @@ namespace Graph
         public static void MyMain(int n,int m)
         {
             
-            
+    
             System.Console.WriteLine($"{ n}, {m}");
         }
     }

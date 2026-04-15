@@ -1,10 +1,17 @@
 using System.Text;
 
-StringBuilder sb = new();
-List<string> strings = new();
-strings.Add(sb.ToString());
-int[] diag     = [];
+List<int> ints = [1];
+AddInt(ints);
+Print(ints);
 
-List<bool[]> row = new List<bool[]>(9);
-for (int i  = 0; i < 9; i++)
-    row[i] = new bool[9];
+
+void Print(List<int> ints)
+{
+    foreach(int i in ints)
+        System.Console.WriteLine(i);
+}
+
+void AddInt(List<int> ints)
+{
+    ints.Add(2);
+}
