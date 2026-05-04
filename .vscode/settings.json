@@ -57,6 +57,11 @@
         "list": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
+    "[cpp]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    "leetcode.defaultLanguage": "cpp",
     "chat.tools.terminal.autoApprove": {
         "g++": true
     },
