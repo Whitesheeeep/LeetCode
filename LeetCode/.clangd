@@ -1,0 +1,7 @@
+CompileFlags:
+  Compiler: D:\Mingw\mingw64\bin\g++.exe
+  Add:
+    - -std=c++17
+    - -Wall
+    - -Wextra
+    - -ID:\Mingw\mingw64\include

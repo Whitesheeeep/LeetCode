@@ -1,0 +1,10 @@
+{
+	"C_Cpp.intelliSenseEngine": "disabled",
+	"clangd.arguments": [
+		"--query-driver=D:\\Mingw\\mingw64\\bin\\g++.exe",
+		"--background-index",
+		"--clang-tidy"
+	],
+	"files.encoding": "utf8",
+	"files.autoGuessEncoding": true
+}

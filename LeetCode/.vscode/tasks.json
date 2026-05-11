@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Ensure output directory",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-Command",
+				"New-Item -ItemType Directory -Force -Path '${fileDirname}\\output' | Out-Null"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Build current C++ file",
+			"type": "shell",
+			"command": "D:\\Mingw\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-std=c++17",
+				"-Wall",
+				"-Wextra",
+				"-g3",
+				"-O0",
+				"${file}",
+				"-o",
+				"${fileDirname}\\output\\debug.exe"
+			],
+			"dependsOn": "Ensure output directory",
+			"dependsOrder": "sequence",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
